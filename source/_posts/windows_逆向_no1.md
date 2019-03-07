@@ -1,7 +1,7 @@
 ---
 title: windows逆向笔记（一）
 date: 2019-03-08
-tags:
+tags: [windows逆向]
 ---
 # 寄存器知识点
 **EAX,ECX,EDX,EBX(8位举例12345678)**: 对应A/C/D/BH,/A/C/D/BL为56、78，对应A/C/D/BX为5678   
