@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="寄存器知识点EAX,ECX,EDX,EBX(8位举例12345678): 对应A/C/D/BH,/A/C/D/BL为56、78，对应A/C/D/BX为5678EIP：当前cpu即将执行的地址     标志寄存器: C：进位，如果无符号计算结果超过最大值则为1，否则为0P：如果计算结果转换为2进制1的个数为偶数则为1，否则为0Z：如果计算结果为0则为1，否则为0S：符号标志，计算结果为负数则为1，否">
+<meta name="description" content="汇编指令nop：空指令，cpu不执行操作push：将数据压倒堆栈最顶端pop：将堆栈顶端数据弹出">
 <meta name="keywords" content="windows逆向">
 <meta property="og:type" content="article">
-<meta property="og:title" content="windows逆向笔记（一）">
-<meta property="og:url" content="http://blog.xn--hwt724amjnmna.com/2019/03/08/windows_逆向_no1/index.html">
+<meta property="og:title" content="windows逆向笔记（二）">
+<meta property="og:url" content="http://blog.xn--hwt724amjnmna.com/2019/03/11/windows_逆向_no2/index.html">
 <meta property="og:site_name" content="欢迎来到流年的小博客">
-<meta property="og:description" content="寄存器知识点EAX,ECX,EDX,EBX(8位举例12345678): 对应A/C/D/BH,/A/C/D/BL为56、78，对应A/C/D/BX为5678EIP：当前cpu即将执行的地址     标志寄存器: C：进位，如果无符号计算结果超过最大值则为1，否则为0P：如果计算结果转换为2进制1的个数为偶数则为1，否则为0Z：如果计算结果为0则为1，否则为0S：符号标志，计算结果为负数则为1，否">
+<meta property="og:description" content="汇编指令nop：空指令，cpu不执行操作push：将数据压倒堆栈最顶端pop：将堆栈顶端数据弹出">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-07T16:42:30.155Z">
+<meta property="og:updated_time" content="2019-03-11T10:11:00.259Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="windows逆向笔记（一）">
-<meta name="twitter:description" content="寄存器知识点EAX,ECX,EDX,EBX(8位举例12345678): 对应A/C/D/BH,/A/C/D/BL为56、78，对应A/C/D/BX为5678EIP：当前cpu即将执行的地址     标志寄存器: C：进位，如果无符号计算结果超过最大值则为1，否则为0P：如果计算结果转换为2进制1的个数为偶数则为1，否则为0Z：如果计算结果为0则为1，否则为0S：符号标志，计算结果为负数则为1，否">
+<meta name="twitter:title" content="windows逆向笔记（二）">
+<meta name="twitter:description" content="汇编指令nop：空指令，cpu不执行操作push：将数据压倒堆栈最顶端pop：将堆栈顶端数据弹出">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.xn--hwt724amjnmna.com/2019/03/08/windows_逆向_no1/">
+  <link rel="canonical" href="http://blog.xn--hwt724amjnmna.com/2019/03/11/windows_逆向_no2/">
 
 
 
 
 
-  <title>windows逆向笔记（一） | 欢迎来到流年的小博客</title>
+  <title>windows逆向笔记（二） | 欢迎来到流年的小博客</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.xn--hwt724amjnmna.com/2019/03/08/windows_逆向_no1/">
+    <link itemprop="mainEntityOfPage" href="http://blog.xn--hwt724amjnmna.com/2019/03/11/windows_逆向_no2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="流年">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">windows逆向笔记（一）</h1>
+          <h1 class="post-title" itemprop="name headline">windows逆向笔记（二）</h1>
         
 
         <div class="post-meta">
@@ -262,8 +262,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-08T00:00:00+08:00">
-                2019-03-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-11T18:08:17+08:00">
+                2019-03-11
               </time>
             
 
@@ -300,9 +300,7 @@
       
 
       
-        <h1 id="寄存器知识点"><a href="#寄存器知识点" class="headerlink" title="寄存器知识点"></a>寄存器知识点</h1><p><strong>EAX,ECX,EDX,EBX(8位举例12345678)</strong>: 对应A/C/D/BH,/A/C/D/BL为56、78，对应A/C/D/BX为5678<br><strong>EIP</strong>：当前cpu即将执行的地址    </p>
-<p><strong>标志寄存器</strong>:</p>
-<p>C：进位，如果无符号计算结果超过最大值则为1，否则为0<br>P：如果计算结果转换为2进制1的个数为偶数则为1，否则为0<br>Z：如果计算结果为0则为1，否则为0<br>S：符号标志，计算结果为负数则为1，否则为0<br>O：大写字母O，代表溢出,如果计算结果改变了符号位则为1，否则为0</p>
+        <h3 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a>汇编指令</h3><p><strong>nop</strong>：空指令，cpu不执行操作<br><strong>push</strong>：将数据压倒堆栈最顶端<br><strong>pop</strong>：将堆栈顶端数据弹出   </p>
 
       
     </div>
@@ -333,15 +331,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/03/09/大麦后台api文档/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/09/大麦后台api文档/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -464,7 +462,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#寄存器知识点"><span class="nav-number">1.</span> <span class="nav-text">寄存器知识点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#汇编指令"><span class="nav-number">1.</span> <span class="nav-text">汇编指令</span></a></li></ol></div>
             
 
           </div>
