@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="api文档,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="大麦前台系统接口文档 0. 全局返回结果说明接口描述：全局返回结果全局请求方式： POST返回格式：（请求成功）：12345&amp;#123;  &quot;status&quot;:true,  // 以此为依据判断请求是否成功  &quot;msg&quot;:&quot;&quot;,       // 请求成功msg无返回值  &quot;data&quot;:[]       // 部分接口返回数组格式数据&amp;#125; 返回格式：（请求失败）：12345&amp;#123;  &quot;">
+<meta name="keywords" content="api文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大麦前台api文档">
+<meta property="og:url" content="http://blog.xn--hwt724amjnmna.com/2019/03/11/大麦前台api文档/index.html">
+<meta property="og:site_name" content="欢迎来到流年的小博客">
+<meta property="og:description" content="大麦前台系统接口文档 0. 全局返回结果说明接口描述：全局返回结果全局请求方式： POST返回格式：（请求成功）：12345&amp;#123;  &quot;status&quot;:true,  // 以此为依据判断请求是否成功  &quot;msg&quot;:&quot;&quot;,       // 请求成功msg无返回值  &quot;data&quot;:[]       // 部分接口返回数组格式数据&amp;#125; 返回格式：（请求失败）：12345&amp;#123;  &quot;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-11T15:01:55.681Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大麦前台api文档">
+<meta name="twitter:description" content="大麦前台系统接口文档 0. 全局返回结果说明接口描述：全局返回结果全局请求方式： POST返回格式：（请求成功）：12345&amp;#123;  &quot;status&quot;:true,  // 以此为依据判断请求是否成功  &quot;msg&quot;:&quot;&quot;,       // 请求成功msg无返回值  &quot;data&quot;:[]       // 部分接口返回数组格式数据&amp;#125; 返回格式：（请求失败）：12345&amp;#123;  &quot;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.xn--hwt724amjnmna.com/2019/03/11/大麦前台api文档/">
+
+
+
+
+
+  <title>大麦前台api文档 | 欢迎来到流年的小博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">欢迎来到流年的小博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">流年的小博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.xn--hwt724amjnmna.com/2019/03/11/大麦前台api文档/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="流年">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎来到流年的小博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大麦前台api文档</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-11T23:11:17+08:00">
+                2019-03-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="大麦前台系统接口文档"><a href="#大麦前台系统接口文档" class="headerlink" title="大麦前台系统接口文档"></a>大麦前台系统接口文档</h1><hr>
+<h3 id="0-全局返回结果说明"><a href="#0-全局返回结果说明" class="headerlink" title="0. 全局返回结果说明"></a>0. 全局返回结果说明</h3><p><strong>接口描述</strong>：全局返回结果<br><strong>全局请求方式</strong>： POST<br><strong>返回格式</strong>：（请求成功）：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "status":true,  // 以此为依据判断请求是否成功</span><br><span class="line">  "msg":"",       // 请求成功msg无返回值</span><br><span class="line">  "data":[]       // 部分接口返回数组格式数据</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>返回格式</strong>：（请求失败）：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "status":false,    // 以此为依据判断请求是否成功</span><br><span class="line">  "msg":"失败原因",   // 请求失败原因</span><br><span class="line">  "data":[]          // 请求失败无data返回值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-检验提货码"><a href="#1-检验提货码" class="headerlink" title="1. 检验提货码"></a>1. 检验提货码</h3><p><strong>接口地址</strong>：/code/pick_up<br><strong>接口描述</strong>：用户输入提货码提交验证接口<br><strong>参数校验</strong>：8位纯数字<br><strong>详细说明</strong>：根据返回结果，exist判断是否绑定订单，send_status是否发货，express_no快递单号，已绑定订单收件人信息为不允许修改状态，已发货订单直接跳转到物流页面，待发货订单跳转到提示页面，提示已提交我们会尽快发货<br><strong>请求格式</strong>：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "code":"23232323",       // 提货码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>成功返回</strong>：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"status"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">"data"</span>: &#123;</span><br><span class="line">		"exist": true,                                        // 是否绑定订单</span><br><span class="line">		"info": &#123;</span><br><span class="line">			"order_id": "19",                                   // 订单id</span><br><span class="line">			"classification_id": "1",                           // 一级类目id</span><br><span class="line">			"name": "王永喜",                                    // 收件人姓名</span><br><span class="line">			"phone": "13776830282",                             // 收件人电话</span><br><span class="line">			"detail": "江苏常州市天宁区城区鼎邦花园25幢1201",      // 收件人地址</span><br><span class="line">			"num": "2",                                         // 订单包含商品数量</span><br><span class="line">			"send_status": "1",                                 // 是否发货0未发货1已发货2待发货</span><br><span class="line">			"express_no": "3937303647484"                       // 快递单号</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	"msg": "请求成功"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-获取商品联动信息"><a href="#2-获取商品联动信息" class="headerlink" title="2. 获取商品联动信息"></a>2. 获取商品联动信息</h3><p><strong>接口地址</strong>：/code/get_sons_info<br><strong>接口描述</strong>：根据上一步返回一级类目id获取二级类目信息，根据用户选择二级类目返回商品信息<br><strong>参数校验</strong>：无<br><strong>请求格式</strong>：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "type":"first",       // 类目种类</span><br><span class="line">    "id":"1",             // 类目id</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>成功返回数据</strong>：(“type = first”,返回二级类目数据)<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"status"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">"data"</span>: &#123;</span><br><span class="line">		<span class="attr">"info"</span>: [&#123;</span><br><span class="line">			"id": "2",         // 类目id</span><br><span class="line">			"title": "iphonex" // 类目名称</span><br><span class="line">		&#125;]</span><br><span class="line">	&#125;,</span><br><span class="line">	"msg": "请求成功"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>成功返回数据</strong>：(“type = second”,返回商品数据)<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"status"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">"data"</span>: &#123;</span><br><span class="line">		<span class="attr">"info"</span>: [&#123;</span><br><span class="line">			"id": "1",             // 商品id</span><br><span class="line">			"title": "手机保护壳",  // 商品名称</span><br><span class="line">			"remark": "新款"       // 商品备注</span><br><span class="line">		&#125;]</span><br><span class="line">	&#125;,</span><br><span class="line">	"msg": "请求成功"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-提交订单"><a href="#3-提交订单" class="headerlink" title="3. 提交订单"></a>3. 提交订单</h3><p><strong>接口地址</strong>：/code/finish_order<br><strong>接口描述</strong>：用户完善订单请求地址<br><strong>参数校验</strong>：所有参数不能为空，如果提货码绑定了订单则不提交收货地址信息,未绑定订单时商品只允许提交一件<br><strong>请求格式</strong>：(提货码绑定了订单)<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"code"</span>:<span class="string">"23232323"</span>,</span><br><span class="line">  "order_id":"1",           // 订单id</span><br><span class="line">  "goods":[</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"good_id"</span>:<span class="string">"1"</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">      "good_id":"2"</span><br><span class="line">    &#125;],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>请求格式</strong>：(提货码未绑定订单)<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "code":"23232323",                            // 提货码</span><br><span class="line">  "goods":[     </span><br><span class="line">    &#123;   </span><br><span class="line">      <span class="attr">"good_id"</span>:<span class="string">"1"</span>                             // 商品id</span><br><span class="line">    &#125;],</span><br><span class="line">  "name":"张三",                                // 收件人姓名</span><br><span class="line">  "phone":"13323232323",                        // 收件人电话</span><br><span class="line">  "detail":"江苏常州市天宁区城区鼎邦花园25幢1201"  // 收件人地址</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-获取物流信息-待完善"><a href="#4-获取物流信息-待完善" class="headerlink" title="4.获取物流信息(待完善)"></a>4.获取物流信息(待完善)</h3><p><strong>接口地址</strong>：/code/express<br><strong>接口描述</strong>：获取物流信息请求地址<br><strong>参数校验</strong>：参数不能为空<br><strong>请求格式</strong>：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "code":"23232323",              // 提货码</span><br><span class="line">  "express_no":"3937303647484"    // 快递单号</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/api文档/" rel="tag"># api文档</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/11/windows_逆向_no2/" rel="next" title="windows逆向笔记（二）">
+                <i class="fa fa-chevron-left"></i> windows逆向笔记（二）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">流年</p>
+              <p class="site-description motion-element" itemprop="description">流年的小博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大麦前台系统接口文档"><span class="nav-number">1.</span> <span class="nav-text">大麦前台系统接口文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-全局返回结果说明"><span class="nav-number">1.0.1.</span> <span class="nav-text">0. 全局返回结果说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-检验提货码"><span class="nav-number">1.0.2.</span> <span class="nav-text">1. 检验提货码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-获取商品联动信息"><span class="nav-number">1.0.3.</span> <span class="nav-text">2. 获取商品联动信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-提交订单"><span class="nav-number">1.0.4.</span> <span class="nav-text">3. 提交订单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-获取物流信息-待完善"><span class="nav-number">1.0.5.</span> <span class="nav-text">4.获取物流信息(待完善)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">流年</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
