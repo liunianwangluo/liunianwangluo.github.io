@@ -1,8 +1,3 @@
----
-title: 大麦后台管理系统接口文档
-date: 2019-03-09
-tags: [开发文档]
----
 #   大麦后台管理系统接口文档
 
 ***
@@ -44,41 +39,44 @@ tags: [开发文档]
 
 ### 2.获取订单列表
 **接口地址**： /home/index/get_orders    
-**参数校验**：one_page和no_page不能小于1    
+**参数校验**：无参数    
 **接口描述**：获取订单列表   
-**请求格式**:
-```json
-{
-  "one_page":"10",  // 每页显示数据条数
-  "no_page": "1"    // 请求第几页数据
-}
-```
+
 **成功返回结果**：
 ```json
+
 {
 	"status": true,
 	"data": {
 		"orders": [{
-			"second_title": "iphonex",                     // 二级类目   
-			"good_remark": "新款",                         // 商品备注
-			"first_title": "TPU手机壳",                    // 一级类目
 			"id": "19",                                    // 订单id
 			"order_no": "2019030723261672207711311",       // 订单编号
 			"no": "001201903074799036",                    // 提货码序列号
 			"code": "23286991",                            // 提货码
 			"name": "王永喜",                               // 收件人姓名
-			"phone": "13776830282",                        // 收件人联系电话
+			"phone": "13776830282",                        // 收件人电话
 			"detail": "江苏常州市天宁区城区鼎邦花园25幢1201", // 收件人地址
-			"remark": "无备注",                             // 订单备注
-			"num": "2",                                    // 订单包含商品数量
-			"good_title": "未知商品标题",                   // 商品标题
-			"time": "2019-03-07 23:26:16",                 // 订单创建时间
-			"sms_status": "0",                             // 短信发送状态 0未发送1已发送2非导入订单无需发送短信
-			"send_status": "1"                             // 发货状态 0未发货1已发货
+			"remark": "放门卫",                             // 订单备注
+			"num": "2",                                    // 商品数量
+			"express_no": "3937303647484",                  // 快递单号
+			"express_name": "韵达",                         // 快递名称
+			"express_code": "yunda",                        // 快递编码
+			"send_time": "2019-03-08 12:36:14",             // 发货时间
+			"time": "2019-03-07 23:26:16",                  // 订单创建时间
+			"sms_status": "0",                              // 短信发送状态 0未发送1已发送2非导入订单
+			"send_status": "1",                             // 发货状态0未发货1已发货
+			"goods_info": [{                               // 商品信息数组
+				"second_title": "苹果",                       // 二级类目
+				"good_remark": "新款",                        // 商品备注
+				"first_title": "TPU手机壳",                   // 一级类目
+				"good_title": "iphonex"                      // 商品标题
+			}, {
+				"second_title": "苹果",
+				"good_remark": "新款",
+				"first_title": "TPU手机壳",
+				"good_title": "iphonex"
+			}]
 		}, {
-			"second_title": "iphonex",
-			"good_remark": "新款",
-			"first_title": "TPU手机壳",
 			"id": "20",
 			"order_no": "2019030723261672207711312",
 			"no": "001201903074799036",
@@ -86,15 +84,45 @@ tags: [开发文档]
 			"name": "王永喜",
 			"phone": "13776830282",
 			"detail": "江苏常州市天宁区城区鼎邦花园25幢1201",
-			"remark": "",
+			"remark": "放商店",
 			"num": "2",
-			"good_title": "未知商品标题",
+			"express_no": "3937303647484",
+			"express_name": "韵达",
+			"express_code": "yunda",
+			"send_time": "2019-03-08 12:36:14",
 			"time": "2019-03-07 23:26:20",
 			"sms_status": "0",
-			"send_status": "1"
-		}],
-		"order_pages": 1, // 总计页数
-		"no_page": "1" // 当前请求页码数
+			"send_status": "1",
+			"goods_info": [{
+				"second_title": "苹果",
+				"good_remark": "旧款",
+				"first_title": "TPU手机壳",
+				"good_title": "iphonex"
+			}]
+		}, {
+			"id": "22",
+			"order_no": "2019030723261672207711313",
+			"no": "001201903074799036",
+			"code": "23286991",
+			"name": "王永喜",
+			"phone": "13776830282",
+			"detail": "江苏常州市天宁区城区鼎邦花园25幢1201",
+			"remark": "放商店",
+			"num": "2",
+			"express_no": "3937303647484",
+			"express_name": "韵达",
+			"express_code": "yunda",
+			"send_time": "2019-03-08 12:36:14",
+			"time": "2019-03-07 23:26:20",
+			"sms_status": "0",
+			"send_status": "1",
+			"goods_info": [{
+				"second_title": null,
+				"good_remark": null,
+				"first_title": null,
+				"good_title": null
+			}]
+		}]
 	},
 	"msg": "请求成功"
 }
@@ -147,15 +175,9 @@ tags: [开发文档]
 ```
 ### 6.获取类目列表
 **接口地址**： /home/index/get_classification   
-**参数校验**：one_page和no_page不能小于1    
+**参数校验**：无参数  
 **接口描述**：获取类目列表   
-**请求格式**:
-```json
-{
-  "one_page":"10", // 每页显示数据条数
-  "no_page": "1" // 请求第几页数据
-}
-```
+
 
 **成功返回结果**：
 ```json
@@ -177,8 +199,6 @@ tags: [开发文档]
 			"time": "2019-03-09 13:23:32",
 			"status": "1"
 		}],
-		"order_pages": 1,
-		"no_page": "1"
 	},
 	"msg": "请求成功"
 }
@@ -212,15 +232,9 @@ tags: [开发文档]
 ```
 ### 9.获取商品列表
 **接口地址**： /home/index/get_goods   
-**参数校验**：one_page和no_page不能小于1    
+**参数校验**：无参数    
 **接口描述**：获取商品列表   
-**请求格式**:
-```json
-{
-  "one_page":"10", // 每页显示数据条数
-  "no_page": "1" // 请求第几页数据
-}
-```
+
 **成功返回数据**：
 ```json
 {
@@ -235,8 +249,6 @@ tags: [开发文档]
 			"time": "2019-03-09 13:23:49",           // 商品添加时间
 			"good_title": "手机保护壳"                // 商品名称
 		}],
-		"order_pages": 1,
-		"no_page": "1"
 	},
 	"msg": "请求成功"
 }
@@ -316,13 +328,7 @@ tags: [开发文档]
 **接口地址**：/home/index/get_codes  
 **参数校验**：无   
 **接口描述**：获取提货码列表接口    
-**请求格式**:
-```json
-{
-  "one_page":"10", // 每页显示数据条数
-  "no_page": "1"   // 请求第几页数据
-}
-```
+
 **成功返回数据**：
 ```json
 {
@@ -351,8 +357,6 @@ tags: [开发文档]
 			"link": "http://dm.com/code/29636468",
 			"use_status": "0"
 		}],
-		"order_pages": 4,
-		"no_page": "1"
 	},
 	"msg": "请求成功"
 }
