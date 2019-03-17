@@ -64,6 +64,7 @@ tags: [api文档]
 			"detail": "江苏常州市天宁区城区鼎邦花园25幢1201", // 收件人地址
 			"remark": "放门卫",                             // 订单备注
 			"num": "2",                                    // 商品数量
+			"express_id": "1",                              // 快递id
 			"express_no": "3937303647484",                  // 快递单号
 			"express_name": "韵达",                         // 快递名称
 			"express_code": "yunda",                        // 快递编码
@@ -92,6 +93,7 @@ tags: [api文档]
 			"detail": "江苏常州市天宁区城区鼎邦花园25幢1201",
 			"remark": "放商店",
 			"num": "2",
+			"express_id": "1",
 			"express_no": "3937303647484",
 			"express_name": "韵达",
 			"express_code": "yunda",
