@@ -344,7 +344,8 @@ tags: [api文档]
 	"data": {
 		"codes": [{
 			"id": "1",                               // 提货码id
-			"first_title": "TPU手机壳",               // 所属一级类目
+      "first_title": "TPU手机壳",               // 所属一级类目
+			"platform": "平安好车主",                  // 平台名称
 			"contacts": "张三",                       // 所属客户
 			"status": "1",                           // 提货码状态0作废1启用2暂停
 			"stime": "2019-03-07 23:26:16",          // 生成时间
@@ -356,6 +357,7 @@ tags: [api文档]
 		}, {
 			"id": "12",
 			"first_title": "TPU手机壳",
+      "platform": "平安好车主",                  // 平台名称
 			"contacts": "张三",
 			"status": "1",
 			"stime": "2019-03-08 13:38:37",
@@ -601,14 +603,14 @@ tags: [api文档]
 **请求格式**：
 ```json
 {
-  "action":"1",
-  "goods":[{
-    "good_id":"1"
-  },{
-    "good_id":"1"  
-    }]
+	"action": "1",
+	"goods": [{
+		"good_id": "1"
+	}, {
+		"good_id": "1"
+	}]
 }
-```  
+```
 
 ### 21.批量操作接口（提货码信息）
 **接口地址**：/home/index/batch_codes    
@@ -617,14 +619,14 @@ tags: [api文档]
 **请求格式**：
 ```json
 {
-  "action":"1",
-  "codes":[{
-    "code_id":"1"
-  },{
-    "code_id":"1"  
-    }]
+	"action": "1",
+	"codes": [{
+		"code_id": "1"
+	}, {
+		"code_id": "1"
+	}]
 }
-```  
+```
 
 ### 22.发送短信接口
 **接口地址**：/home/index/send_sms    
@@ -633,13 +635,13 @@ tags: [api文档]
 **请求格式**：   
 ```json
 {
-  "orders":[{
-    "order_id":"1"
-  },{
-    "order_id":"1"  
-    }]
+	"orders": [{
+		"order_id": "1"
+	}, {
+		"order_id": "1"
+	}]
 }
-```  
+```
 ### 23.导出订单接口
 **接口地址**：/home/index/export_orders   
 **参数校验**：
@@ -650,11 +652,11 @@ tags: [api文档]
   "type":"all/select",              // all为导出所有待发货订单，select为导出已选中未发货订单
   "ids":["1","2","3","4","5"]       // type为all时需传递id数组
 }
-```  
+```
 
 ### 24.导出提货码接口
 **接口地址**：/home/index/export_codes   
-**参数校验**：
+**参数校验**：   
 **接口描述**：导出提货码   
 **请求格式**：   
 ```json
@@ -662,4 +664,57 @@ tags: [api文档]
   "type":"all/select",              // all为导出所有未使用提货码，select为导出已选中未使用提货码
   "ids":["1","2","3","4","5"]       // type为all时需传递id数组
 }
-```  
+```
+
+### 25.获取客户档案列表
+**接口地址**：/home/index/get_customers    
+**参数校验**：     
+**接口描述**：获取客户档案列表   
+**返回数据格式**：   
+```json
+{
+	"status": true,
+	"data": {
+		"customers": [{
+			"id": "1",                 // id
+			"platform": "平安好车主",   // 平台名称
+			"platform_type": "金融",   // 平台类型
+			"contacts": "张三",        // 联系人
+			"phone": "13323232323",    // 电话
+			"address": "广东省深圳市"    // 地址
+		}]
+	},
+	"msg": "请求成功"
+}
+```
+
+
+### 26.新增客户档案
+**接口地址**：/home/index/create_customer  
+**参数校验**：platform，platform_type，contacts不能为空   
+**接口描述**：新增客户档案    
+**请求格式**:
+```json
+{
+  "platform": "平安好车主",   // 平台名称
+  "platform_type": "金融",   // 平台类型
+  "contacts": "张三",        // 联系人
+  "phone": "13323232323",    // 电话
+  "address": "广东省深圳市"    // 地址
+}
+```
+### 27.修改客户档案
+**接口地址**：/home/index/update_customer  
+**参数校验**：id，platform，platform_type，contacts不能为空   
+**接口描述**：修改客户档案    
+**请求格式**:
+```json
+{
+  "id": "1",                 // id
+  "platform": "平安好车主",   // 平台名称
+  "platform_type": "金融",   // 平台类型
+  "contacts": "张三",        // 联系人
+  "phone": "13323232323",    // 电话
+  "address": "广东省深圳市"    // 地址
+}
+```
