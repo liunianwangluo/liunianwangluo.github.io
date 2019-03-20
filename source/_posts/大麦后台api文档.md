@@ -653,6 +653,16 @@ tags: [api文档]
   "ids":["1","2","3","4","5"]       // type为select时需传递id数组
 }
 ```
+**成功返回格式**：   
+```json
+{
+  "status": true,
+  "data": {
+    "url": "/Public/xxx/xxx.xlxx"
+  },
+  "msg": "请求成功"
+}
+```
 
 ### 24.导出提货码接口
 **接口地址**：/home/index/export_codes   
@@ -663,6 +673,16 @@ tags: [api文档]
 {
   "type":"all/select",              // all为导出所有未使用提货码，select为导出已选中未使用提货码
   "ids":["1","2","3","4","5"]       // type为select时需传递id数组
+}
+```
+**成功返回格式**：   
+```json
+{
+  "status": true,
+  "data": {
+    "url": "/Public/xxx/xxx.xlxx"
+  },
+  "msg": "请求成功"
 }
 ```
 
