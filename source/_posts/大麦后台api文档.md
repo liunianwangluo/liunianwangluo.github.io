@@ -650,7 +650,7 @@ tags: [api文档]
 ```json
 {
   "type":"all/select",              // all为导出所有待发货订单，select为导出已选中未发货订单
-  "ids":["1","2","3","4","5"]       // type为all时需传递id数组
+  "ids":["1","2","3","4","5"]       // type为select时需传递id数组
 }
 ```
 
@@ -662,7 +662,7 @@ tags: [api文档]
 ```json
 {
   "type":"all/select",              // all为导出所有未使用提货码，select为导出已选中未使用提货码
-  "ids":["1","2","3","4","5"]       // type为all时需传递id数组
+  "ids":["1","2","3","4","5"]       // type为select时需传递id数组
 }
 ```
 
