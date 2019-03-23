@@ -640,11 +640,8 @@ tags: [api文档]
 **请求格式**：   
 ```json
 {
-	"orders": [{
-		"order_id": "1"
-	}, {
-		"order_id": "1"
-	}]
+  "type":"all/select",
+	"ids": ["1","2","3"]
 }
 ```
 ### 23.导出订单接口
