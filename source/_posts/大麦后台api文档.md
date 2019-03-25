@@ -70,7 +70,7 @@ tags: [api文档]
 			"express_code": "yunda",                        // 快递编码
 			"send_time": "2019-03-08 12:36:14",             // 发货时间
 			"time": "2019-03-07 23:26:16",                  // 订单创建时间
-			"sms_status": "0",                              // 短信发送状态 0未发送1已发送2非导入订单
+			"sms_status": "0",                              // 短信发送状态 0未发送1发送中2非导入订单3发送成功4发送失败
 			"send_status": "1",                             // 发货状态0未发货1已发货
 			"goods_info": [{                               // 商品信息数组
 				"second_title": "苹果",                       // 二级类目
@@ -352,24 +352,13 @@ tags: [api文档]
 			"platform": "平安好车主",                  // 平台名称
 			"contacts": "张三",                       // 所属客户
 			"status": "1",                           // 提货码状态0作废1启用2暂停
-			"stime": "2019-03-07 23:26:16",          // 生成时间
-			"etime": "2019-04-06 23:26:16",          // 到期时间
+      "time": "2019-03-07 23:26:16",           // 生成时间
+			"stime": "2019-03-07 23:26:16",          // 有效期起始时间
+			"etime": "2019-04-06 23:26:16",          // 有效期到期时间
 			"no": "001201903074799036",              // 序列号
 			"code": "23286991",                      // 提货码
 			"link": "http://domain.cn/code/23286991",// 提货链接  
 			"use_status": "0"                        // 兑换状态0未兑换1已兑换
-		}, {
-			"id": "12",
-			"first_title": "TPU手机壳",
-      "platform": "平安好车主",                  // 平台名称
-			"contacts": "张三",
-			"status": "1",
-			"stime": "2019-03-08 13:38:37",
-			"etime": "2019-04-07 13:38:37",
-			"no": "001201903086749485",
-			"code": "29636468",
-			"link": "http://dm.com/code/29636468",
-			"use_status": "0"
 		}],
 	},
 	"msg": "请求成功"
@@ -385,7 +374,8 @@ tags: [api文档]
   "pid":"1",          // 一级类目
   "num":"10",         // 生成数量
   "customer_id":"1",  // 客户id
-  "expiry_date":"30", // 有效期（天）
+  "stime":"2019-10-10", // 有效期起始时间
+  "etime":"2019-11-11", // 有效期结束时间
   "status":"1",       // 启用状态（0作废1启用2暂停）
   "use_status":"0"    // 兑换状态（0未兑换1已兑换）
 }
@@ -401,6 +391,7 @@ tags: [api文档]
   "id":"1",                            // 提货码id
   "pid":"10",                          // 一级类目
   "customer_id":"1",                   // 客户id
+  "stime":"2019-03-09 11:11:11",       // 有效期起始日期 YYYY-MM-DD HH:II:SS 格式
   "etime":"2019-03-09 11:11:11",       // 到期日期 YYYY-MM-DD HH:II:SS 格式
   "status":"1"                         // 启用状态（0作废1启用2暂停）
 }
@@ -423,7 +414,7 @@ tags: [api文档]
 {
   "type":"order_status",
   "value":{
-    "order_status":"sms_true/sms_false/send_true/send_false"
+    "order_status":"sms_wait/sms_sending/sms_true/sms_false/send_true/send_false/send_complete" // 未发送，发送中，发送成功，发送失败，已发货，待发货，未完善
   }
 }
 ```
@@ -506,6 +497,16 @@ tags: [api文档]
 **请求格式**:（根据生成时间）
 ```json
 {
+  "type":"time",
+  "value":{
+    "stime":"2018-11-11 11:11:11",
+    "etime":"2018-11-11 11:11:11"
+  }
+}
+```
+**请求格式**:（根据有效期起始时间）
+```json
+{
   "type":"stime",
   "value":{
     "stime":"2018-11-11 11:11:11",
@@ -516,7 +517,7 @@ tags: [api文档]
 **请求格式**:（根据到期时间）
 ```json
 {
-  "type":"express",
+  "type":"etime",
   "value":{
     "stime":"2018-11-11 11:11:11",
     "etime":"2018-11-11 11:11:11"
@@ -624,7 +625,8 @@ tags: [api文档]
 ```json
 {
 	"action": "1",
-  "days":"30", // 延期天数（action为3是传递此参数）
+  "type":"stime/etime",         // 批量延期时需提交
+  "days":"2019-08-25 23:59:59", // 延期日期（action为3时传递此参数）
 	"codes": [{
 		"code_id": "1"
 	}, {
